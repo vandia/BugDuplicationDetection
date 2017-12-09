@@ -1,0 +1,178 @@
+id,directoryId,userName,lowerUserName,active,createdDate,updatedDate,displayName,lowerDisplayName,emailAddress,lowerEmailAddress,credential,localServiceDeskUser
+13601,1,srossi5619,srossi5619,1,2017-02-23 17:54:26.883,2017-05-16 23:29:57.252,Said Rossi,said rossi,srossi5619@rogers.com,srossi5619@rogers.com,nopass,0
+15200,1,ianpun,ianpun,1,2017-05-17 03:24:29.757,2017-05-17 03:26:39.98,Ian Pun,ian pun,ianpun@gmail.com,ianpun@gmail.com,nopass,0
+15300,1,kapil.jain123,kapil.jain123,1,2017-05-18 18:11:55.101,2017-05-18 18:13:24.641,Kapil Jain,kapil jain,kapil.jain123@gmail.com,kapil.jain123@gmail.com,nopass,0
+15301,1,db,db,1,2017-05-19 14:23:46.414,2017-05-19 14:23:46.414,David Bond,david bond,db@kaiinnovations.com,db@kaiinnovations.com,nopass,0
+15400,1,isyed.ahmed,isyed.ahmed,1,2017-05-20 20:07:27.314,2017-05-20 20:07:27.314,Syed Ahmed,syed ahmed,isyed.ahmed@hotmail.com,isyed.ahmed@hotmail.com,nopass,0
+1510,1,Suni,suni,0,2013-10-21 13:45:17.026,2017-05-16 23:29:56.989,Suni Bek,suni bek,sunibek@gmail.com,sunibek@gmail.com,nopass,0
+115,1,aubier,aubier,0,2013-04-12 15:11:43.731,2017-05-16 23:29:57.307,Rachel Aubie,rachel aubie,aubier@mcmaster.ca,aubier@mcmaster.ca,nopass,0
+511,1,ianpert,ianpert,0,2013-05-14 16:05:56.537,2017-05-16 23:29:57.332,Ian Pert,ian pert,ian.pert@gmail.com,ian.pert@gmail.com,nopass,0
+910,1,jimw1,jimw1,0,2013-07-08 15:52:30.286,2017-05-16 23:29:56.771,Jim Wright,jim wright,jwright@mcmaster.ca,jwright@mcmaster.ca,nopass,0
+113,1,mbarber,mbarber,0,2013-04-10 18:59:28.975,2017-05-16 23:29:56.804,Madeline Barber Dal Molin,madeline barber dal molin,mbarber@mcmaster.ca,mbarber@mcmaster.ca,nopass,0
+410,1,anandjacob,anandjacob,0,2013-05-01 13:10:45.652,2017-05-16 23:29:56.816,Anand Jacob,anand jacob,jacoba6@mcmaster.ca,jacoba6@mcmaster.ca,nopass,0
+2210,1,dsin,dsin,1,2014-03-04 14:28:44.819,2017-05-16 23:29:56.833,Daniel Sin,daniel sin,daniel.sin@cyctek.com,daniel.sin@cyctek.com,nopass,0
+1110,1,trimara,trimara,1,2013-08-15 13:46:04.55,2017-05-16 23:29:56.87,Trimara Corporation,trimara corporation,mcmasterdm@trimara.ca,mcmasterdm@trimara.ca,nopass,0
+810,1,hexbinary,hexbinary,1,2013-07-05 14:11:26.336,2017-05-16 23:29:56.89,Marc Dumontier,marc dumontier,marc@mdumontier.com,marc@mdumontier.com,nopass,0
+413,1,rosemarymohammed,rosemarymohammed,0,2013-05-08 17:53:08.849,2017-05-16 23:29:56.923,Rosemary Mohammed,rosemary mohammed,mohammrn@mcmaster.ca,mohammrn@mcmaster.ca,nopass,0
+2610,1,mutagus,mutagus,1,2015-05-21 16:48:25.115,2017-05-16 23:29:56.935,Silvanus Paul,silvanus paul,mutagus@mcmaster.ca,mutagus@mcmaster.ca,nopass,0
+610,1,kadamczyk,kadamczyk,1,2013-06-03 17:52:21.635,2017-05-16 23:29:56.938,Krzysztof Adamczyk,krzysztof adamczyk,adamczy@mcmaster.ca,adamczy@mcmaster.ca,nopass,0
+710,1,gdernis,gdernis,0,2013-06-18 14:03:14.862,2017-05-16 23:29:56.954,Gregory Dernis,gregory dernis,gdernis@gmail.com,gdernis@gmail.com,nopass,0
+310,1,tedleung,tedleung,0,2013-04-25 20:42:05.62,2017-05-16 23:29:56.959,Ted,ted,tedleungoscar@gmail.com,tedleungoscar@gmail.com,nopass,0
+1610,1,kamfarhood,kamfarhood,0,2013-11-05 16:32:30.764,2017-05-16 23:29:56.964,Kam Farhood,kam farhood,kamfarhood@gmail.com,kamfarhood@gmail.com,nopass,0
+2011,1,chinesemusic,chinesemusic,0,2014-02-06 02:15:15.418,2017-05-16 23:29:56.966,chinesemusic,chinesemusic,chinesemusic@rogers.com,chinesemusic@rogers.com,nopass,0
+114,1,vanderw,vanderw,0,2013-04-12 14:55:12.922,2017-05-16 23:29:56.999,Benjamin,benjamin,vanderw@mcmaster.ca,vanderw@mcmaster.ca,nopass,0
+414,1,johnnycanuck,johnnycanuck,0,2013-05-09 15:44:18.539,2017-05-16 23:29:57.004,John Wilson,john wilson,jumptiger13@hotmail.com,jumptiger13@hotmail.com,nopass,0
+116,1,shazib.zaffar,shazib.zaffar,0,2013-04-14 04:50:37.279,2017-05-16 23:29:57.054,Shazib Zaffar,shazib zaffar,shazib.zaffar@gmail.com,shazib.zaffar@gmail.com,nopass,0
+411,1,McIvor,mcivor,0,2013-05-06 18:38:24.038,2017-05-16 23:29:57.142,Adam Gignac,adam gignac,gignac.adam@gmail.com,gignac.adam@gmail.com,nopass,0
+512,1,paul.brown9,paul.brown9,0,2013-05-15 15:01:36.086,2017-05-16 23:29:57.229,Paul Brown,paul brown,paul.brown9@mohawkcollege.ca,paul.brown9@mohawkcollege.ca,nopass,0
+2110,1,shawn.quait,shawn.quait,1,2014-02-18 16:46:25.543,2017-05-16 23:29:57.281,Shawn Quait,shawn quait,shawn.quait@gmail.com,shawn.quait@gmail.com,nopass,0
+2710,1,peterHC,peterhc,1,2015-06-02 20:26:01.256,2017-05-16 23:29:57.286,Peter H-C,peter h-c,phc@srpc.ca,phc@srpc.ca,nopass,0
+111,1,darryl.hui,darryl.hui,0,2013-04-10 17:44:01.886,2017-05-16 23:29:57.295,Darryl Hui,darryl hui,darryl.hui@gmail.com,darryl.hui@gmail.com,nopass,0
+1611,1,nasons2,nasons2,1,2013-11-06 16:44:29.404,2017-05-16 23:29:57.316,Sonia Nason (Adams),sonia nason (adams),nasons2@mcmaster.ca,nasons2@mcmaster.ca,nopass,0
+412,1,clarkc,clarkc,0,2013-05-08 13:52:42.709,2017-05-16 23:29:57.318,Craig Clark,craig clark,craig.clark87@gmail.com,craig.clark87@gmail.com,nopass,0
+1310,1,bewsher,bewsher,0,2013-09-11 17:54:10.837,2017-05-16 23:29:57.33,Holly Bewsher,holly bewsher,bewsher@mcmaster.ca,bewsher@mcmaster.ca,nopass,0
+210,1,nick.goupinets@gmail.com,nick.goupinets@gmail.com,0,2013-04-15 18:56:39.917,2017-05-16 23:29:57.334,Nick Goupinets,nick goupinets,nick.goupinets@gmail.com,nick.goupinets@gmail.com,nopass,0
+211,1,Anubha,anubha,0,2013-04-16 15:24:13.304,2017-05-16 23:29:57.345,Anubha Sant,anubha sant,santa@mcmaster.ca,santa@mcmaster.ca,nopass,0
+10400,1,oscaremr,oscaremr,1,2016-11-16 15:47:51.747,2017-05-16 23:29:56.813,OSCAR Test 2,oscar test 2,digregsm@mcmaster.ca,digregsm@mcmaster.ca,nopass,0
+1910,1,kenling,kenling,0,2014-01-29 19:24:27.382,2017-05-16 23:29:56.821,kenling,kenling,kenling@eprom.com,kenling@eprom.com,nopass,0
+2910,1,AaronLane,aaronlane,0,2015-06-22 13:16:09.213,2017-05-16 23:29:56.823,Aaron Lane,aaron lane,a.lane@utoronto.ca,a.lane@utoronto.ca,nopass,0
+3810,1,peverett,peverett,1,2016-04-08 13:40:04.969,2017-05-16 23:29:56.835,Peter Everett,peter everett,peverett@oscarprn.com,peverett@oscarprn.com,nopass,0
+2312,1,nityan,nityan,0,2014-05-09 02:18:53.724,2017-05-16 23:29:56.882,Nityan Khanna,nityan khanna,nityan.khanna@mohawkcollege.ca,nityan.khanna@mohawkcollege.ca,nopass,0
+1710,1,kitella,kitella,0,2013-11-13 13:00:42.893,2017-05-16 23:29:56.902,Bob Kitella,bob kitella,bob@kitella.com,bob@kitella.com,nopass,0
+3710,1,rrusk,rrusk,1,2016-03-23 22:07:04.937,2017-05-16 23:29:56.91,Raymond Rusk,raymond rusk,rusk.raymond@gmail.com,rusk.raymond@gmail.com,nopass,0
+10100,1,akahan,akahan,1,2016-10-28 22:56:44.905,2017-05-16 23:29:56.926,Adolph Kahan,adolph kahan,adolph_kahan@rogers.com,adolph_kahan@rogers.com,nopass,0
+4310,1,jumptiger13,jumptiger13,1,2016-06-24 15:33:15.154,2017-05-16 23:29:56.942,John Wilson,john wilson,jumptiger13@gmail.com,jumptiger13@gmail.com,nopass,0
+3010,1,durossron,durossron,0,2015-08-20 17:50:44.821,2017-05-16 23:29:56.945,ron duross,ron duross,ron.duross@csc-scc.gc.ca,ron.duross@csc-scc.gc.ca,nopass,0
+1210,1,ning.yin,ning.yin,0,2013-08-21 17:02:13.81,2017-05-16 23:29:56.947,Ning Yin,ning yin,frankyin720@gmail.com,frankyin720@gmail.com,nopass,0
+2810,1,KeithChung,keithchung,1,2015-06-20 21:53:00.49,2017-05-16 23:29:56.952,Keith Chung,keith chung,keith.chung@magentahealth.ca,keith.chung@magentahealth.ca,nopass,0
+3110,1,cronnie,cronnie,1,2015-09-03 15:09:05.772,2017-05-16 23:29:56.971,Ronnie Cheng,ronnie cheng,cmc.ronnie.cheng@gmail.com,cmc.ronnie.cheng@gmail.com,nopass,0
+2010,1,peter,peter,0,2014-02-04 23:36:39.06,2017-05-16 23:29:56.994,Peter Hutten Czapski,peter hutten czapski,phc@srp.ca,phc@srp.ca,nopass,0
+4210,1,cody.thompson,cody.thompson,1,2016-06-02 14:54:27.088,2017-05-16 23:29:57.001,Cody Thompson,cody thompson,ct@kaiinnovations.com,ct@kaiinnovations.com,nopass,0
+2715,1,sara-kai,sara-kai,1,2015-06-08 16:19:48.927,2017-05-16 23:29:57.007,Sara Bond,sara bond,sb@kaiinnovations.com,sb@kaiinnovations.com,nopass,0
+3610,1,kris.vanderstarren,kris.vanderstarren,1,2016-03-16 00:50:20.556,2017-05-16 23:29:57.107,Kris van der Starren,kris van der starren,kris.vanderstarren@trimara.ca,kris.vanderstarren@trimara.ca,nopass,0
+2714,1,kai,kai,1,2015-06-08 15:59:26.059,2017-05-16 23:29:57.227,Kai Innovations,kai innovations,kai.tech.team15@gmail.com,kai.tech.team15@gmail.com,nopass,0
+1410,1,winklef,winklef,0,2013-10-09 14:55:16.664,2017-05-16 23:29:57.249,Frank Winkle,frank winkle,winklef@mcmaster.ca,winklef@mcmaster.ca,nopass,0
+3410,1,ghbevans,ghbevans,0,2015-12-09 19:03:20.691,2017-05-16 23:29:57.257,Gareth Evans,gareth evans,garethevans@rogers.com,garethevans@rogers.com,nopass,0
+3711,1,jens,jens,1,2016-03-24 17:06:15.222,2017-05-16 23:29:57.262,Jens Weber,jens weber,jens@uvic.ca,jens@uvic.ca,nopass,0
+1810,1,mzshen,mzshen,0,2013-11-20 13:36:40.236,2017-05-16 23:29:57.271,Mingzuo Shen,mingzuo shen,mzshen@yahoo.com,mzshen@yahoo.com,nopass,0
+2711,1,oscarwestern,oscarwestern,1,2015-06-03 14:50:53.792,2017-05-16 23:29:57.275,Western Health Services,western health services,oscar-support@uwo.ca,oscar-support@uwo.ca,nopass,0
+3311,1,OscarService,oscarservice,1,2015-10-15 14:01:35.26,2017-05-16 23:29:57.278,OscarService,oscarservice,info@oscarservice.com,info@oscarservice.com,nopass,0
+2310,1,owenscm,owenscm,1,2014-05-06 18:43:24.83,2017-05-16 23:29:57.284,Chris Owens,chris owens,owenscm@mcmaster.ca,owenscm@mcmaster.ca,nopass,0
+10300,1,digregsm,digregsm,1,2016-11-14 18:02:40.206,2017-05-16 23:29:57.29,OSCAR Test,oscar test,digregsm@gmail.com,digregsm@gmail.com,nopass,0
+3910,1,ryan.habibi,ryan.habibi,1,2016-05-05 00:52:51.461,2017-05-16 23:29:57.309,Ryan Habibi,ryan habibi,ryan.habibi@oscar-emr.com,ryan.habibi@oscar-emr.com,nopass,0
+2712,1,ddsin,ddsin,0,2015-06-03 17:19:07.928,2017-05-16 23:29:57.323,ddsin,ddsin,dsin@sympatico.ca,dsin@sympatico.ca,nopass,0
+3712,1,toby.bian,toby.bian,1,2016-03-28 14:20:23.536,2017-05-16 23:29:57.35,Toby Bian,toby bian,toby@oscarservice.com,toby@oscarservice.com,nopass,0
+4511,1,pat,pat,1,2016-08-17 14:31:43.781,2017-08-15 15:51:10.639,Pat Morphy,pat morphy,pat@nerdbc.ca,pat@nerdbc.ca,nopass,0
+4111,1,tluxford,tluxford,1,2016-06-01 12:57:26.226,2017-08-25 00:29:45.693,Thom Luxford,thom luxford,thom@bcmdit.com,thom@bcmdit.com,nopass,0
+4510,1,mike,mike,1,2016-08-17 14:29:15.25,2017-08-25 03:39:32.12,Mike Thompson,mike thompson,mike@nerdbc.ca,mike@nerdbc.ca,nopass,0
+11800,1,dmitchell,dmitchell,1,2016-12-21 16:29:31.091,2017-05-16 23:29:56.78,Dustin Mitchell,dustin mitchell,dustin.mitchell@ne.ccac-ont.ca,dustin.mitchell@ne.ccac-ont.ca,nopass,0
+10700,1,Nikolas,nikolas,1,2016-11-25 19:19:35.056,2017-05-16 23:29:56.79,Nikolas Dafopoulos,nikolas dafopoulos,info@medbase.ca,info@medbase.ca,nopass,0
+12101,1,natalie.lamarche,natalie.lamarche,1,2017-01-05 18:16:57.421,2017-05-16 23:29:56.792,Natalie Lamarche,natalie lamarche,Natalie.Lamarche@ne.ccac-ont.ca,natalie.lamarche@ne.ccac-ont.ca,nopass,0
+11501,1,ayounes,ayounes,1,2016-12-14 02:51:04.261,2017-05-16 23:29:56.826,Ali Younes,ali younes,alyouness@gmail.com,alyouness@gmail.com,nopass,0
+14401,1,yislah,yislah,1,2017-04-05 23:01:00.447,2017-05-16 23:29:56.83,Youssef Islah,youssef islah,yislah@gmail.com,yislah@gmail.com,nopass,0
+12100,1,tomsitter,tomsitter,1,2017-01-04 16:27:27.699,2017-05-16 23:29:56.892,Tom Sitter,tom sitter,thomas.sitter@gmail.com,thomas.sitter@gmail.com,nopass,0
+12000,1,lungd,lungd,1,2017-01-02 16:47:11.717,2017-05-16 23:29:56.897,David Lung,david lung,lungd@dandasolutions.ca,lungd@dandasolutions.ca,nopass,0
+11200,1,gkelly,gkelly,1,2016-12-06 20:48:43.821,2017-05-16 23:29:56.905,Graig Kelly,graig kelly,kelly@mcmaster.ca,kelly@mcmaster.ca,nopass,0
+12900,1,rjonasz,rjonasz,1,2017-01-31 23:35:46.33,2017-05-16 23:29:56.916,Randall Jonasz,randall jonasz,rjonasz@rjonasz.ca,rjonasz@rjonasz.ca,nopass,0
+11301,1,CP-Jordan,cp-jordan,1,2016-12-07 19:58:10.029,2017-05-16 23:29:56.928,Jordan Visco,jordan visco,jordan@cloudpractice.ca,jordan@cloudpractice.ca,nopass,0
+3210,1,addon_com.lucidchart.confluence.plugins.lucid-confluence,addon_com.lucidchart.confluence.plugins.lucid-confluence,1,2015-09-16 11:57:32.369,2017-05-16 23:29:56.957,Lucidchart Diagrams,lucidchart diagrams,com.lucidchart.confluence.plugins.lucid-confluence@connect.atlassian.com,com.lucidchart.confluence.plugins.lucid-confluence@connect.atlassian.com,nopass,0
+12300,1,beapen,beapen,1,2017-01-11 21:52:24.663,2017-05-16 23:29:56.969,Bell Eapen,bell eapen,bitbucket@gulfdoctor.net,bitbucket@gulfdoctor.net,nopass,0
+10900,1,ownvolition,ownvolition,1,2016-11-30 20:55:14.211,2017-05-16 23:29:56.974,Michael Collins,michael collins,ownvolition@me.com,ownvolition@me.com,nopass,0
+12400,1,Maveric1984,maveric1984,1,2017-01-15 16:11:11.374,2017-05-16 23:29:56.976,Braedon,braedon,braedonhendy@gmail.com,braedonhendy@gmail.com,nopass,0
+12200,1,rmdstudio,rmdstudio,1,2017-01-07 00:21:51.714,2017-05-16 23:29:56.981,Rastin Mehr,rastin mehr,rastin@rmdstudio.com,rastin@rmdstudio.com,nopass,0
+11303,1,DrMule,drmule,1,2016-12-08 10:46:14.362,2017-05-16 23:29:57.017,George Kruzyk,george kruzyk,dr.kruzyk@gmail.com,dr.kruzyk@gmail.com,nopass,0
+11900,1,nerdbc,nerdbc,1,2016-12-24 00:34:41.646,2017-05-16 23:29:57.109,NerdBC,nerdbc,support@nerdbc.ca,support@nerdbc.ca,nopass,0
+10800,1,ggargarella@gmail.com,ggargarella@gmail.com,1,2016-11-29 16:16:41.577,2017-05-16 23:29:57.147,George Gargarella,george gargarella,ggargarella@openhealthss.com,ggargarella@openhealthss.com,nopass,0
+11600,1,OscarHost,oscarhost,1,2016-12-16 18:01:52.729,2017-05-16 23:29:57.152,Oscar Host,oscar host,admins@cloudpractice.ca,admins@cloudpractice.ca,nopass,0
+11500,1,ryanpoole,ryanpoole,1,2016-12-13 19:21:47.511,2017-05-16 23:29:57.154,Ryan Poole,ryan poole,pooler@mcmaster.ca,pooler@mcmaster.ca,nopass,0
+12700,1,fcoburn,fcoburn,1,2017-01-26 20:12:25.597,2017-05-16 23:29:57.259,Frank Coburn,frank coburn,fcoburn@gmail.com,fcoburn@gmail.com,nopass,0
+11400,1,Drazen,drazen,1,2016-12-09 19:32:47.976,2017-05-16 23:29:57.288,Drazen Loncaric,drazen loncaric,admin@zenmd.ca,admin@zenmd.ca,nopass,0
+11304,1,tedleungoscar@gmail.com,tedleungoscar@gmail.com,1,2016-12-08 19:27:33.511,2017-05-16 23:29:57.297,ted,ted,tedleungoscar+1@gmail.com,tedleungoscar+1@gmail.com,nopass,0
+11000,1,nismar,nismar,1,2016-12-01 14:50:15.082,2017-05-16 23:29:57.3,Ramsin Kamo,ramsin kamo,ramsin.kamo@gmail.com,ramsin.kamo@gmail.com,nopass,0
+11700,1,Chod,chod,1,2016-12-19 22:37:41.336,2017-05-16 23:29:57.311,David Chodyra,david chodyra,jira@chod.ca,jira@chod.ca,nopass,0
+11100,1,sfmigration,sfmigration,1,2016-12-02 18:00:35.624,2017-05-16 23:29:57.341,Sourceforge Migration,sourceforge migration,jira@oscar-emr.com,jira@oscar-emr.com,nopass,0
+10501,1,dalmolin,dalmolin,1,2016-11-17 20:08:09.516,2017-05-16 23:29:57.348,Joseph Dal Molin,joseph dal molin,dalmolin@e-cology.ca,dalmolin@e-cology.ca,nopass,0
+10000,1,dantrob,dantrob,1,2016-10-17 19:44:28.213,2017-05-23 18:46:50.256,Dennis Antrobus,dennis antrobus,dantrob@uwo.ca,dantrob@uwo.ca,nopass,0
+10502,1,lstrauch@rogers.com,lstrauch@rogers.com,1,2016-11-18 16:37:52.995,2017-07-26 17:03:56.698,Luis Strauch,luis strauch,lstrauch@rogers.com,lstrauch@rogers.com,nopass,0
+12001,1,earlwer,earlwer,1,2017-01-03 17:20:49.878,2017-09-02 00:20:59.136,Earl Wertheimer,earl wertheimer,earlwer@gmail.com,earlwer@gmail.com,nopass,0
+13200,1,mfehr,mfehr,1,2017-02-09 21:42:18.251,2017-05-16 23:29:56.755,Matt Fehr,matt fehr,mfehr@livecare.ca,mfehr@livecare.ca,nopass,0
+11302,1,JordanNicholas,jordannicholas,1,2016-12-07 20:00:23.444,2017-05-16 23:29:56.768,Jordan Nicholas,jordan nicholas,jordan.nicholas@cloudpractice.ca,jordan.nicholas@cloudpractice.ca,nopass,0
+15000,1,vsingh,vsingh,1,2017-05-09 16:18:31.845,2017-05-16 23:29:56.773,Varinder Singh,varinder singh,vsingh@auxita.com,vsingh@auxita.com,nopass,0
+3310,1,ali,ali,0,2015-10-13 19:22:19.476,2017-05-16 23:29:56.776,Ali Mirzaee,ali mirzaee,amirzaee@riskview.ca,amirzaee@riskview.ca,nopass,0
+10200,1,dar905,dar905,1,2016-11-01 14:29:49.694,2017-05-16 23:29:56.785,Darwin Tsai,darwin tsai,tsai@cheerful.com,tsai@cheerful.com,nopass,0
+12,1,jay,jay,1,2013-04-07 04:25:49.417,2017-05-16 23:29:56.787,Jason Gallagher,jason gallagher,jay@jayweb.ca,jay@jayweb.ca,nopass,0
+13500,1,sie,sie,1,2017-02-21 05:39:38.396,2017-05-16 23:29:56.807,Clement Law,clement law,sie@kepic.net,sie@kepic.net,nopass,0
+14901,1,luishu247,luishu247,1,2017-05-06 19:14:35.52,2017-05-16 23:29:56.81,Luis Hu,luis hu,luishu247@hotmail.com,luishu247@hotmail.com,nopass,0
+14200,1,tungtran,tungtran,1,2017-04-03 07:47:23.751,2017-05-16 23:29:56.895,Tung Tran,tung tran,tungtran@zentech.io,tungtran@zentech.io,nopass,0
+14100,1,francis,francis,1,2017-03-23 20:40:18.229,2017-05-16 23:29:56.9,Francis Man,francis man,francis@infomedicsystem.com,francis@infomedicsystem.com,nopass,0
+14000,1,sourcecode,sourcecode,1,2017-03-21 14:05:42.951,2017-05-16 23:29:56.908,OSCAR EMR (TEST),oscar emr (test),sourcecode@oscar-emr.com,sourcecode@oscar-emr.com,nopass,0
+14201,1,testaccount,testaccount,1,2017-04-03 13:58:38.212,2017-05-16 23:29:56.913,Test Account,test account,sourcecode@mdumontier.com,sourcecode@mdumontier.com,nopass,0
+14400,1,jabaker,jabaker,1,2017-04-05 17:01:27.866,2017-05-16 23:29:56.921,Jason Baker,jason baker,jabaker@mcmaster.ca,jabaker@mcmaster.ca,nopass,0
+13000,1,nikdunn1979,nikdunn1979,1,2017-02-03 16:47:18.665,2017-05-16 23:29:56.93,Nikolaus Dunn,nikolaus dunn,nikdunn1979@gmail.com,nikdunn1979@gmail.com,nopass,0
+13400,1,waldront,waldront,1,2017-02-18 01:24:44.301,2017-05-16 23:29:56.962,Terry Waldron,terry waldron,waldront@kgh.on.ca,waldront@kgh.on.ca,nopass,0
+14900,1,joseph.ouya,joseph.ouya,1,2017-05-05 14:08:33.649,2017-05-16 23:29:57.112,Joseph Ouya,joseph ouya,joseph.ouya@oscar-emr.com,joseph.ouya@oscar-emr.com,nopass,0
+14202,1,dan,dan,1,2017-04-04 02:11:27.207,2017-05-16 23:29:57.234,Dan Brow,dan brow,dan@providecom.com,dan@providecom.com,nopass,0
+13101,1,raymond.rusk,raymond.rusk,1,2017-02-08 18:57:09.306,2017-05-16 23:29:57.254,raymond.rusk,raymond.rusk,raymond.rusk@oscar-emr.com,raymond.rusk@oscar-emr.com,nopass,0
+13800,1,richard.cheso,richard.cheso,1,2017-03-03 15:39:08.477,2017-05-16 23:29:57.266,Che So,che so,richard.cheso@gmail.com,richard.cheso@gmail.com,nopass,0
+13700,1,rajiv.abraham,rajiv.abraham,1,2017-03-01 12:21:53.272,2017-05-16 23:29:57.269,Rajiv Abraham,rajiv abraham,rajiv.abraham@gmail.com,rajiv.abraham@gmail.com,nopass,0
+14700,1,vdiazg,vdiazg,1,2017-04-28 18:06:09.115,2017-05-16 23:29:57.293,Vanesa Diaz,vanesa diaz,vdiazg@uvic.ca,vdiazg@uvic.ca,nopass,0
+13300,1,msamuel3,msamuel3,1,2017-02-14 15:52:06.194,2017-05-16 23:29:57.302,Melvin Samuel,melvin samuel,msamuel3@uwo.ca,msamuel3@uwo.ca,nopass,0
+14600,1,charles.al.chan,charles.al.chan,1,2017-04-22 13:02:13.104,2017-05-16 23:29:57.314,Charles Chan,charles chan,charles.al.chan@gmail.com,charles.al.chan@gmail.com,nopass,0
+14800,1,marc,marc,1,2017-05-02 17:43:27.808,2017-05-16 23:29:57.321,marc,marc,marc@mdumontier.ca,marc@mdumontier.ca,nopass,0
+14402,1,pluk77,pluk77,1,2017-04-06 11:07:58.944,2017-05-16 23:29:57.337,Marcel Berteler,marcel berteler,pluk77@gmail.com,pluk77@gmail.com,nopass,0
+4110,1,dwarren,dwarren,1,2016-06-01 12:41:48.202,2017-05-16 23:29:56.828,Dennis Warren,dennis warren,dwarren@colcamex.com,dwarren@colcamex.com,nopass,0
+15100,1,huytsnguyen,huytsnguyen,1,2017-05-13 18:34:15.006,2017-06-25 16:49:52.795,Huy T.S. Nguyen,huy t.s. nguyen,huytsnguyen@gmail.com,huytsnguyen@gmail.com,nopass,0
+13900,1,kerri.rapson,kerri.rapson,1,2017-03-15 15:46:06.626,2017-08-03 18:58:03.631,Kerri Rapson,kerri rapson,kerri.rapson@oscar-emr.com,kerri.rapson@oscar-emr.com,nopass,0
+14300,1,sourcecode1,sourcecode1,1,2017-04-04 13:11:33.097,2017-08-17 15:53:35.398,OSCAR SERVICE,oscar service,sourcecode@oscarservice.com,sourcecode@oscarservice.com,nopass,0
+13901,1,tw,tw,1,2017-03-15 19:37:47.717,2017-08-21 20:07:54.82,Tanner Williams,tanner williams,tw@kaiinnovations.com,tw@kaiinnovations.com,nopass,0
+13600,1,sean.sweeney,sean.sweeney,1,2017-02-22 19:46:21.492,2017-08-22 17:30:58.537,Sean Sweeney,sean sweeney,sean.sweeney@kflapublichealth.ca,sean.sweeney@kflapublichealth.ca,nopass,0
+14500,1,mac_dm,mac_dm,0,2017-04-11 19:23:03.242,2017-09-19 13:51:23.455,Jason Baker,jason baker,mac_dm@cpcssn.org,mac_dm@cpcssn.org,nopass,0
+13100,1,singhgamer,singhgamer,1,2017-02-07 16:40:25.259,2017-10-03 16:42:47.628,Varinder Singh,varinder singh,singhgamer@gmail.com,singhgamer@gmail.com,nopass,0
+11401,1,addon_com.gliffy.integration.confluence,addon_com.gliffy.integration.confluence,0,2016-12-13 04:41:09.131,2017-05-16 23:29:56.875,addon_com.gliffy.integration.confluence,addon_com.gliffy.integration.confluence,com.gliffy.integration.confluence@connect.atlassian.com,com.gliffy.integration.confluence@connect.atlassian.com,nopass,0
+10600,1,jkesselman@sentex.net,jkesselman@sentex.net,1,2016-11-22 20:14:52.114,2017-05-16 23:29:56.887,Jack Kesselman,jack kesselman,jkesselman@sentex.net,jkesselman@sentex.net,nopass,0
+11300,1,michaelg,michaelg,1,2016-12-07 18:50:32.16,2017-05-16 23:29:56.94,Michael Giovanniello,michael giovanniello,michael.giovanniello@gmail.com,michael.giovanniello@gmail.com,nopass,0
+2410,1,addon_lucidchart-app,addon_lucidchart-app,0,2014-08-28 15:23:32.64,2017-05-16 23:29:56.95,Lucidchart,lucidchart,lucidchart-app@connect.atlassian.com,lucidchart-app@connect.atlassian.com,nopass,0
+14101,1,erobertus,erobertus,1,2017-03-28 05:34:53.014,2017-05-16 23:29:56.996,Eugene Robertus,eugene robertus,robertus@rogers.com,robertus@rogers.com,nopass,0
+12800,1,admin,admin,1,2017-01-27 20:13:52.377,2017-05-16 23:29:57.145,Brad Clare,brad clare,admin@iadvanceit.ca,admin@iadvanceit.ca,nopass,0
+12600,1,williamhgrosset,williamhgrosset,1,2017-01-23 18:24:26.666,2017-05-16 23:29:57.223,William Grosset,william grosset,williamhgrosset@gmail.com,williamhgrosset@gmail.com,nopass,0
+2713,1,shehzadmerchant,shehzadmerchant,1,2015-06-04 18:24:50.771,2017-05-16 23:29:57.264,Shehzad S. Merchant,shehzad s. merchant,sm@kaiinnovations.com,sm@kaiinnovations.com,nopass,0
+12500,1,pbrookbanks,pbrookbanks,1,2017-01-18 20:22:51.759,2017-05-16 23:29:57.328,Paul Brookbanks,paul brookbanks,pbrookbanks@regenerationcs.org,pbrookbanks@regenerationcs.org,nopass,0
+4010,1,sara.digregorio,sara.digregorio,1,2016-05-05 17:45:07.026,2017-05-16 23:29:57.339,Sara Di Gregorio,sara di gregorio,sara.digregorio@oscar-emr.com,sara.digregorio@oscar-emr.com,nopass,0
+2311,1,mo,mo,0,2014-05-09 01:17:27.928,2017-05-26 07:00:00.672,Mohamed Ibrahim,mohamed ibrahim,mohamed.ibrahim1@mohawkcollege.ca,mohamed.ibrahim1@mohawkcollege.ca,nopass,0
+15500,1,kelvinau4413,kelvinau4413,1,2017-05-28 18:07:33.958,2017-05-28 18:07:33.958,Kelvin Au,kelvin au,kelvinau4413@hotmail.com,kelvinau4413@hotmail.com,nopass,0
+15600,1,habiba69,habiba69,1,2017-06-01 15:06:18.347,2017-06-01 15:06:18.347,Habiba Saggar,habiba saggar,habiba69@gmail.com,habiba69@gmail.com,nopass,0
+15700,1,mloubani,mloubani,1,2017-06-12 00:13:19.138,2017-06-12 00:13:19.138,mloubani,mloubani,mloubani@gmail.com,mloubani@gmail.com,nopass,0
+15800,1,youmakesense,youmakesense,1,2017-06-21 19:18:41.826,2017-06-21 19:18:41.826,Raheel Sajid,raheel sajid,youmakesense@gmail.com,youmakesense@gmail.com,nopass,0
+15900,1,harald,harald,1,2017-06-26 07:04:04.291,2017-06-26 07:04:04.291,Harald Villemoes,harald villemoes,harald@villemoes.dk,harald@villemoes.dk,nopass,0
+16000,1,hutch54,hutch54,1,2017-07-05 01:06:35.692,2017-07-05 01:06:35.692,Gordon,gordon,hutch54@shaw.ca,hutch54@shaw.ca,nopass,0
+3713,1,annie-zhou,annie-zhou,1,2016-03-29 18:29:36.222,2017-07-06 12:56:39.058,Annie Zhou,annie zhou,anniezhou@oscarservice.com,anniezhou@oscarservice.com,nopass,0
+4410,1,PRKowest,prkowest,1,2016-08-16 23:48:47.539,2017-07-06 22:31:13.345,Patricia Rodger Kirkpatrick,patricia rodger kirkpatrick,patti@oscarwest.com,patti@oscarwest.com,nopass,0
+16100,1,nshenoy,nshenoy,1,2017-07-08 14:00:15.566,2017-07-08 14:00:15.566,Nik Shenoy,nik shenoy,nshenoy@workaround.ca,nshenoy@workaround.ca,nopass,0
+16200,1,richard.duck,richard.duck,1,2017-07-10 20:42:12.467,2017-07-10 20:42:12.467,Richard Duck,richard duck,richard.duck@myhealthcentre.ca,richard.duck@myhealthcentre.ca,nopass,0
+10500,1,markcallen,markcallen,1,2016-11-17 17:45:47.961,2017-07-14 04:14:04.174,Mark Allen,mark allen,mark@markcallen.com,mark@markcallen.com,nopass,0
+16300,1,raymond.rusk1,raymond.rusk1,1,2017-07-17 16:29:10.004,2017-07-17 16:29:10.004,raymond.rusk@shaw.ca,raymond.rusk@shaw.ca,raymond.rusk@shaw.ca,raymond.rusk@shaw.ca,nopass,0
+16400,1,p79kem2,p79kem2,1,2017-07-20 03:38:39.482,2017-07-20 03:38:39.482,Robert Fraser,robert fraser,p79kem2@yahoo.ca,p79kem2@yahoo.ca,nopass,0
+16500,1,c.yu765,c.yu765,1,2017-07-23 21:57:31.226,2017-07-23 21:57:31.226,carlos yu,carlos yu,c.yu765@hotmail.com,c.yu765@hotmail.com,nopass,0
+16501,1,michael.guo1225,michael.guo1225,1,2017-07-24 13:07:41.224,2017-07-24 13:07:41.224,Michael Guo,michael guo,michael.guo1225@gmail.com,michael.guo1225@gmail.com,nopass,0
+16600,1,aplatov,aplatov,1,2017-08-04 15:51:18.039,2017-08-04 15:51:18.039,Andre Platov,andre platov,aplatov@influxworkflow.com,aplatov@influxworkflow.com,nopass,0
+16700,1,joshi_nainital,joshi_nainital,1,2017-08-10 17:41:44.05,2017-08-10 17:41:44.05,Dinesh,dinesh,joshi_nainital@rediffmail.com,joshi_nainital@rediffmail.com,nopass,0
+16800,1,crazynammer,crazynammer,1,2017-08-13 23:51:18.398,2017-08-13 23:51:18.398,Vu Ha,vu ha,crazynammer@gmail.com,crazynammer@gmail.com,nopass,0
+16900,1,mweston4,mweston4,1,2017-08-24 15:44:27.48,2017-08-24 15:44:27.48,Melissa Beldman,melissa beldman,mweston4@uwo.ca,mweston4@uwo.ca,nopass,0
+17000,1,phamhu,phamhu,1,2017-08-26 00:54:20.681,2017-08-26 00:54:20.681,Tan Pham,tan pham,phamhu@yahoo.com,phamhu@yahoo.com,nopass,0
+17001,1,jack.kesselman,jack.kesselman,1,2017-08-28 23:22:54.705,2017-08-28 23:22:54.705,Jack Kesselman,jack kesselman,jack.kesselman@gmail.com,jack.kesselman@gmail.com,nopass,0
+3510,1,addon_com.gliffy.integration.jira,addon_com.gliffy.integration.jira,1,2016-01-18 06:41:43.423,2017-09-01 03:01:57.8,Gliffy Diagrams for JIRA Cloud,gliffy diagrams for jira cloud,com.gliffy.integration.jira@connect.atlassian.com,com.gliffy.integration.jira@connect.atlassian.com,nopass,0
+17100,1,fadyaminmikha,fadyaminmikha,1,2017-09-05 14:25:23.346,2017-09-05 14:25:23.346,fady amin,fady amin,fadyaminmikha@gmail.com,fadyaminmikha@gmail.com,nopass,0
+17101,1,clark.evans,clark.evans,1,2017-09-05 22:02:41.408,2017-09-05 22:02:41.408,Clark Evans,clark evans,clark.evans@gmail.com,clark.evans@gmail.com,nopass,0
+17201,1,addon_com.atlassian.confluence.plugins.confluence-questions,addon_com.atlassian.confluence.plugins.confluence-questions,1,2017-09-11 01:06:22.186,2017-09-11 01:06:22.186,com.atlassian.confluence.plugins.confluence-questions,com.atlassian.confluence.plugins.confluence-questions,com.atlassian.confluence.plugins.confluence-questions@connect.atlassian.com,com.atlassian.confluence.plugins.confluence-questions@connect.atlassian.com,nopass,0
+17202,1,davidberaa,davidberaa,1,2017-09-11 10:32:37.387,2017-09-11 10:32:37.387,dberaya.ellipsoit@gmail.com,dberaya.ellipsoit@gmail.com,davidberaa@gmail.com,davidberaa@gmail.com,nopass,0
+17203,1,wei,wei,1,2017-09-11 22:17:16.529,2017-09-11 22:17:16.529,Wei Quan,wei quan,wei@autonomal.com,wei@autonomal.com,nopass,0
+17200,1,multipro,multipro,1,2017-09-10 14:10:51.192,2017-09-12 10:37:57.652,Rick Harris,rick harris,multipro@techemail.com,multipro@techemail.com,nopass,0
+17204,1,nguyeneucliq,nguyeneucliq,1,2017-09-13 08:19:45.941,2017-09-13 08:19:45.941,Eric Nguyen,eric nguyen,nguyeneucliq@gmail.com,nguyeneucliq@gmail.com,nopass,0
+17205,1,amja,amja,1,2017-09-16 15:40:34.644,2017-09-16 15:40:34.644,Ajay Majithia,ajay majithia,amja@rogers.com,amja@rogers.com,nopass,0
+10,1,muffinman,muffinman,1,2013-04-04 18:51:30.806,2017-09-20 19:34:50.885,Sarah Allen,sarah allen,sallen@mcmaster.ca,sallen@mcmaster.ca,nopass,0
+17300,1,paulmalcolm25,paulmalcolm25,1,2017-09-22 03:10:00.756,2017-09-22 03:10:00.756,Paul Malcolm,paul malcolm,paulmalcolm25@gmail.com,paulmalcolm25@gmail.com,nopass,0
+17400,1,addon_cello,addon_cello,1,2017-10-05 05:56:47.891,2017-10-05 05:56:47.891,Trello,trello,cello@connect.atlassian.com,cello@connect.atlassian.com,nopass,0
+17401,1,r.alhamad,r.alhamad,1,2017-10-09 08:54:48.761,2017-10-09 08:54:48.761,Ramie Al Hamad,ramie al hamad,r.alhamad@emethod.net,r.alhamad@emethod.net,nopass,0
+17402,1,jake.swart8,jake.swart8,1,2017-10-15 20:54:09.753,2017-10-15 20:54:09.753,Jake Swart,jake swart,jake.swart8@gmail.com,jake.swart8@gmail.com,nopass,0
+17403,1,raheelsajid,raheelsajid,1,2017-10-17 17:58:43.527,2017-10-17 17:58:43.527,Raheel,raheel,raheelsajid@gmail.com,raheelsajid@gmail.com,nopass,0
+17404,1,sysadmin,sysadmin,1,2017-10-17 21:38:10.479,2017-10-17 21:38:10.479,System Administrator,system administrator,sysadmin@localhost.localdomain,sysadmin@localhost.localdomain,{PKCS5S2}R+BJAdk3nuzFdPM7xgH9f6dp1SvPCTa57Z4LZvMj4kKcpcBvOBoBsW5rMs/xoydN,

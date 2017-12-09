@@ -1,18 +1,36 @@
 import io_utilities as ut
 import cleaning_utilities as cl
 import pandas as pd
-#import SimilarityCalculation as sm
+import requests
+import json
+import csv
 
 
 def generate_reputation():
+
+    generate_sourceforge_user()
+
     # Creation of reporter social parameters
 
     due = ut.load('../data_in/OscarUserExperience.csv', date_cols=['createdDate', 'updatedDate'])
     dgit = ut.load('../data_in/OscarGitLog.csv', date_cols=['date'])
     djira = ut.load('../data_in/OscarBugDetails.csv')
+    djira['reporter'] = djira.apply(
+        lambda row: row['reporter'] if pd.isnull(row['sourceforge_reporter']) else row['sourceforge_reporter'], axis=1)
+    ut.save_csv(djira, '../data_in/OscarBugDetails.csv', False)
+    dsforge = ut.load('../data_in/OscarSourceForgeUsers.csv', date_cols=['createdDate'])
 
     due = cl.drop_columns(due, ['directoryId', 'updatedDate', 'displayName', 'lowerDisplayName',
                                 'emailAddress', 'credential', 'localServiceDeskUser'])
+
+    dsforge['id'] = dsforge.index + due.id.max()
+    #dsforge['lowerEmailAddress']=pd.Series()
+
+    due = due.append(dsforge)
+
+
+
+
 
     dgit['author_email'] = dgit.author_email.str.lower()
     dgb = dgit.groupby('author_email').size().reset_index(name='commits')
@@ -50,23 +68,26 @@ def generate_reputation():
 
     return result
 
+def generate_sourceforge_user():
+    djira = ut.load('../data_in/OscarBugDetails.csv')
+    sf_users=djira.sourceforge_reporter.unique()
+    baseurl = "https://sourceforge.net/rest/u/"
+    with open('../data_in/OscarSourceForgeUsers.csv', 'w') as csvfile:
+        fieldnames = ['lowerUserName', 'createdDate','active']
+        writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+        writer.writeheader()
+        for i in sf_users:
+            print(str(baseurl) + str(i).replace(" ","%20"))
+            r = requests.get(str(baseurl) + str(i).replace(" ","%20"))
+            if (r.ok):
+                data = json.loads(r.content)
+                active = 1 if data['status'] == 'active' else 0
+                writer.writerow({'lowerUserName':str(i),'createdDate':data['creation_date'],'active':active})
+
 
 def main():
-    reputation = generate_reputation()
-    # reputation = ut.load('../data_out/ReporterReputation.csv')
-    ut.save_csv(reputation, '../data_out/ReporterReputation.csv', False)
-    # combined = sm.generate()
-    combined = ut.load('../data_out/OscarBugSimilarities.csv')
-    #ut.save_csv(combined, '../data_out/OscarBugSimilarities.csv', False)
-    classified = ut.load('../data_in/OscarDuplicationClassification.csv')
-    result = pd.merge(combined, classified, left_on=['bugid_1', 'bugid_2'], right_on=['bugid_1', 'bugid_2'], how='left')
-    ut.save_csv(result, '../data_out/OscarBugSimilaritiesClassified.csv', False)
-
-    result = pd.merge(combined, reputation, left_on='reporter', right_on='lowerUserName', how='left')
-    cl.drop_columns(result, ['lowerUserName'])
-    result = pd.merge(result, classified, left_on=['bugid_1', 'bugid_2'], right_on=['bugid_1', 'bugid_2'], how='left')
-    ut.save_csv(result, '../data_out/OscarBugSimilaritiesReporterReputationClassified.csv', False)
-
+    result=generate_reputation()
+    ut.save_csv(result, '../data_out/ReporterReputation.csv', False)
 
 if __name__ == '__main__':
     main()

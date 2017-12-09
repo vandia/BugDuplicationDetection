@@ -69,7 +69,7 @@ def generate_similarity(details, comments):
         if grt.size == 0:
             continue
         sim_categorical = cosine_similarity(crop_details.loc[[row[0]]], Y=grt)
-        sim_textual = cosine_similarity(comments.loc[[row[0]]].vector.tolist(), Y=comments.loc[row[1]].vector.tolist())
+        sim_textual = gensim.matutils.cossi(comments.loc[[row[0]]].vector.tolist(), Y=comments.loc[row[1]].vector.tolist())
         bugid_2 = bugid_2.append(pd.Series(row[1]))
         bugid_1 = bugid_1.append(pd.Series(list(it.repeat(row[0], len(row[1])))))
         categ_cosine_similarity = categ_cosine_similarity.append(pd.Series(sim_categorical[0, :]))
@@ -89,7 +89,7 @@ def preprocess_categorical(dataset):
     df['project'] = df['project'].astype('category').cat.codes
     df['reporter'] = df['reporter'].astype('category').cat.codes
     df['status'] = df['status'].astype('category').cat.codes
-    df['SourceForge_reporter'] = df['SourceForge_reporter'].astype('category').cat.codes
+    df['sourceforge_reporter'] = df['sourceforge_reporter'].astype('category').cat.codes
     df = cl.drop_columns(df, ['classifier', 'creation_date'])
     df.set_index('bugid', inplace=True)
 
