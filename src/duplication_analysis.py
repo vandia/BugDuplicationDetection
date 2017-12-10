@@ -2,7 +2,7 @@ import io_utilities as ut
 import reporter_reputation as rr
 import cleaning_utilities as cl
 import pandas as pd
-import SimilarityCalculation as sm
+import similarity_calculation as sm
 
 def main():
     reputation = rr.generate_reputation()
@@ -12,7 +12,9 @@ def main():
     #combined = ut.load('../data_out/OscarBugSimilarities.csv')
     #ut.save_csv(combined, '../data_out/OscarBugSimilarities.csv', False)
     classified = ut.load('../data_in/OscarDuplicationClassification.csv')
+
     result = pd.merge(combined, classified, left_on=['bugid_1', 'bugid_2'], right_on=['bugid_1', 'bugid_2'], how='left')
+    result.classifier.fillna("OTHER", inplace=True)
     ut.save_csv(result, '../data_out/OscarBugSimilaritiesClassified.csv', False)
 
     result = pd.merge(combined, reputation, left_on='reporter', right_on='lowerUserName', how='left')

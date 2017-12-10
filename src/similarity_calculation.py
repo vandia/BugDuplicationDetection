@@ -1,6 +1,5 @@
 import itertools as it
 import pandas as pd
-import time
 from sklearn.metrics.pairwise import cosine_similarity
 import cleaning_utilities as cl
 import io_utilities as ut
@@ -22,6 +21,9 @@ def clean_string(str):
 
 
 def generate_doc2vec(df):
+
+    print("Generating and training doc2vec model")
+
     df['comments'] = df['comments'].apply(lambda x: x.decode("utf-8"))
     df['comments'] = df['comments'].apply(lambda x: x.rstrip())
 
@@ -43,6 +45,9 @@ def generate_doc2vec(df):
 
 # generate all the possible combinations using A priori algorithm sorting by date.
 def generate_pairs(dataset):
+
+    print("Generating bug pair combinations")
+
     result = []
     dataset.sort_values('creation_date', ascending=True, kind='mergesort', inplace=True)
     for index, row in dataset.iterrows():
@@ -55,6 +60,9 @@ def generate_pairs(dataset):
 
 # generate context and text similarities.
 def generate_similarity(details, comments):
+
+    print("Generating contextual and text similarities")
+
     result = pd.DataFrame(columns=['bugid_1', 'bugid_2', 'categ_cosine_similarity', 'text_cosine_similarity'])
     bugid_1 = pd.Series()
     bugid_2 = pd.Series()
@@ -69,7 +77,7 @@ def generate_similarity(details, comments):
         if grt.size == 0:
             continue
         sim_categorical = cosine_similarity(crop_details.loc[[row[0]]], Y=grt)
-        sim_textual = gensim.matutils.cossi(comments.loc[[row[0]]].vector.tolist(), Y=comments.loc[row[1]].vector.tolist())
+        sim_textual = cosine_similarity(comments.loc[[row[0]]].vector.tolist(), Y=comments.loc[row[1]].vector.tolist())
         bugid_2 = bugid_2.append(pd.Series(row[1]))
         bugid_1 = bugid_1.append(pd.Series(list(it.repeat(row[0], len(row[1])))))
         categ_cosine_similarity = categ_cosine_similarity.append(pd.Series(sim_categorical[0, :]))
@@ -79,12 +87,17 @@ def generate_similarity(details, comments):
     result['bugid_2'] = bugid_2
     result['categ_cosine_similarity'] = categ_cosine_similarity
     result['text_cosine_similarity'] = text_cosine_similarity
+    result['text_cosine_similarity'] = text_cosine_similarity
+    result['text_cosine_similarity'] = text_cosine_similarity
     result = pd.merge(result, details[['bugid', 'reporter']], left_on='bugid_2', right_on='bugid', how='left')
     result = cl.drop_columns(result, ['bugid'])
     return result
 
 
 def preprocess_categorical(dataset):
+
+    print("Preprocessing categorical values from bug")
+
     df = dataset.copy(deep=True)
     df['project'] = df['project'].astype('category').cat.codes
     df['reporter'] = df['reporter'].astype('category').cat.codes

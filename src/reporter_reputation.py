@@ -12,6 +12,8 @@ def generate_reputation():
 
     # Creation of reporter social parameters
 
+    print ("Generating reporter reputation")
+
     due = ut.load('../data_in/OscarUserExperience.csv', date_cols=['createdDate', 'updatedDate'])
     dgit = ut.load('../data_in/OscarGitLog.csv', date_cols=['date'])
     djira = ut.load('../data_in/OscarBugDetails.csv')
@@ -27,10 +29,6 @@ def generate_reputation():
     #dsforge['lowerEmailAddress']=pd.Series()
 
     due = due.append(dsforge)
-
-
-
-
 
     dgit['author_email'] = dgit.author_email.str.lower()
     dgb = dgit.groupby('author_email').size().reset_index(name='commits')
@@ -69,6 +67,9 @@ def generate_reputation():
     return result
 
 def generate_sourceforge_user():
+
+    print("Fetching SourceForge users")
+
     djira = ut.load('../data_in/OscarBugDetails.csv')
     sf_users=djira.sourceforge_reporter.unique()
     baseurl = "https://sourceforge.net/rest/u/"
@@ -77,7 +78,6 @@ def generate_sourceforge_user():
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
         writer.writeheader()
         for i in sf_users:
-            print(str(baseurl) + str(i).replace(" ","%20"))
             r = requests.get(str(baseurl) + str(i).replace(" ","%20"))
             if (r.ok):
                 data = json.loads(r.content)

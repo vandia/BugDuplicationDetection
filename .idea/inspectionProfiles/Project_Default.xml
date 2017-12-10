@@ -8,6 +8,7 @@
           <option value="io_utilities" />
           <option value="SimilarityCalculation" />
           <option value="reporter_reputation" />
+          <option value="similarity_calculation" />
         </list>
       </option>
     </inspection_tool>
