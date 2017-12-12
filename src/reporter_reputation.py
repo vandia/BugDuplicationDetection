@@ -17,7 +17,7 @@ def generate_reputation():
 
     due = ut.load('../data_in/OscarUserExperience.csv', date_cols=['createdDate', 'updatedDate'])
     dgit = ut.load('../data_in/OscarGitLog.csv', date_cols=['date'])
-    djira = ut.load('../data_in/OscarBugDetails.csv')
+    djira = ut.load('../data_in/OscarBugDetails.csv',date_cols=['creation_date'])
     djira['reporter'] = djira.apply(
         lambda row: row['reporter'] if pd.isnull(row['sourceforge_reporter']) else row['sourceforge_reporter'], axis=1)
     ut.save_csv(djira, '../data_in/OscarBugDetails.csv', False)
