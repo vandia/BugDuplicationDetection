@@ -3,16 +3,17 @@ import cleaning_utilities as cl
 import pandas as pd
 import requests
 import json
-import csv
 
 
 def generate_reputation():
 
-    generate_sourceforge_user()
+    dsforge = generate_sourceforge_user()
+
+    ut.save_csv (dsforge, '../data_in/OscarSourceForgeUsers.csv', False)
 
     # Creation of reporter social parameters
 
-    print ("Generating reporter reputation")
+    print("Generating reporter reputation")
 
     due = ut.load('../data_in/OscarUserExperience.csv', date_cols=['createdDate', 'updatedDate'])
     dgit = ut.load('../data_in/OscarGitLog.csv', date_cols=['date'])
@@ -20,14 +21,20 @@ def generate_reputation():
     djira['reporter'] = djira.apply(
         lambda row: row['reporter'] if pd.isnull(row['sourceforge_reporter']) else row['sourceforge_reporter'], axis=1)
     ut.save_csv(djira, '../data_in/OscarBugDetails.csv', False)
-    dsforge = ut.load('../data_in/OscarSourceForgeUsers.csv', date_cols=['createdDate'])
+
 
     due = cl.drop_columns(due, ['directoryId', 'updatedDate', 'displayName', 'lowerDisplayName',
                                 'emailAddress', 'credential', 'localServiceDeskUser'])
 
+    aux = dsforge[dsforge.lowerUserName.isin(due.lowerUserName)]
+    dsforge = dsforge[~dsforge.lowerUserName.isin(due.lowerUserName)]
+    due = pd.merge(due, aux, left_on='lowerUserName', right_on='lowerUserName', suffixes=('', '_sourceforge'),
+                   how='left')
+    due['createdDate'] = due.apply(
+        lambda row: row['createdDate'] if pd.isnull(row['createdDate_sourceforge']) else row['createdDate_sourceforge'],
+        axis=1)
+    cl.drop_columns(due, ['createdDate_sourceforge', 'active_sourceforge'])
     dsforge['id'] = dsforge.index + due.id.max()
-    #dsforge['lowerEmailAddress']=pd.Series()
-
     due = due.append(dsforge)
 
     dgit['author_email'] = dgit.author_email.str.lower()
@@ -66,28 +73,32 @@ def generate_reputation():
 
     return result
 
-def generate_sourceforge_user():
 
+def generate_sourceforge_user():
     print("Fetching SourceForge users")
 
     djira = ut.load('../data_in/OscarBugDetails.csv')
-    sf_users=djira.sourceforge_reporter.unique()
+    sf_users = djira.sourceforge_reporter.unique()
     baseurl = "https://sourceforge.net/rest/u/"
-    with open('../data_in/OscarSourceForgeUsers.csv', 'w') as csvfile:
-        fieldnames = ['lowerUserName', 'createdDate','active']
-        writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
-        writer.writeheader()
-        for i in sf_users:
-            r = requests.get(str(baseurl) + str(i).replace(" ","%20"))
-            if (r.ok):
-                data = json.loads(r.content)
-                active = 1 if data['status'] == 'active' else 0
-                writer.writerow({'lowerUserName':str(i),'createdDate':data['creation_date'],'active':active})
+    result=[]
+
+    for i in sf_users:
+        r = requests.get(str(baseurl) + str(i).replace(" ", "%20"))
+        if (r.ok):
+            data = json.loads(r.content)
+            active = 1 if data['status'] == 'active' else 0
+            result.append([str(i).lower(), data['creation_date'], active])
+
+    df = pd.DataFrame(result,columns=['lowerUserName','createdDate','active'])
+    df['createdDate'] = pd.to_datetime(df['createdDate'])
+    return df
+
 
 
 def main():
-    result=generate_reputation()
+    result = generate_reputation()
     ut.save_csv(result, '../data_out/ReporterReputation.csv', False)
+
 
 if __name__ == '__main__':
     main()

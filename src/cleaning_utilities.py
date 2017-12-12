@@ -28,6 +28,18 @@ def fill_boolean_columns(dataset, columns, value=None):
     dataset.fillna(value, inplace = True)
     return dataset  
 
+def fill_nan_values (dataset, columns):
+    if type(columns) == list:
+        for i in columns:
+            mean = int(round(dataset[dataset[i] != 0][i].mean()))
+            dataset[i] = dataset[i].fillna(mean)
+        return dataset
+    elif type(columns) == str:
+        mean = int(round(dataset[dataset[columns] != 0][columns].mean()))
+        dataset[columns] = dataset[columns].fillna(mean, inplace=True)
+
+    return dataset
+
 def fill_zero_values(dataset, columns):
     if type(columns) == list:
         for i in columns:

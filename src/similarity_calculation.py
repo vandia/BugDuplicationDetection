@@ -61,8 +61,6 @@ def generate_pairs(dataset):
 # generate context and text similarities.
 def generate_similarity(details, comments):
 
-    print("Generating contextual and text similarities")
-
     result = pd.DataFrame(columns=['bugid_1', 'bugid_2', 'categ_cosine_similarity', 'text_cosine_similarity'])
     bugid_1 = pd.Series()
     bugid_2 = pd.Series()
@@ -71,6 +69,8 @@ def generate_similarity(details, comments):
 
     pairs = generate_pairs(details)
     crop_details = preprocess_categorical(details)
+
+    print("Generating contextual and text similaritiesf")
 
     for row in pairs:
         grt = crop_details.loc[row[1]]
