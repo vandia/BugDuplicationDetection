@@ -70,7 +70,7 @@ def generate_similarity(details, comments):
     pairs = generate_pairs(details)
     crop_details = preprocess_categorical(details)
 
-    print("Generating contextual and text similaritiesf")
+    print("Generating contextual and text similarities")
 
     for row in pairs:
         grt = crop_details.loc[row[1]]
@@ -100,10 +100,8 @@ def preprocess_categorical(dataset):
 
     df = dataset.copy(deep=True)
     df['project'] = df['project'].astype('category').cat.codes
-    df['reporter'] = df['reporter'].astype('category').cat.codes
     df['status'] = df['status'].astype('category').cat.codes
-    df['sourceforge_reporter'] = df['sourceforge_reporter'].astype('category').cat.codes
-    df = cl.drop_columns(df, ['classifier', 'creation_date'])
+    df = cl.drop_columns(df, ['number','classifier', 'creation_date','reporter','sourceforge_reporter'])
     df.set_index('bugid', inplace=True)
 
     return df
