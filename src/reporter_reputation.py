@@ -15,7 +15,7 @@ def generate_reputation():
 
     print("Generating reporter reputation")
 
-    due = ut.load('../data_in/OscarUserExperience.csv', date_cols=['createdDate', 'updatedDate'])
+    due = ut.load('../data_in/OscarJiraUserInformation.csv', date_cols=['createdDate', 'updatedDate'])
     dgit = ut.load('../data_in/OscarGitLog.csv', date_cols=['date'])
     djira = ut.load('../data_in/OscarBugDetails.csv',date_cols=['creation_date'])
     djira['reporter'] = djira.apply(
