@@ -17,7 +17,7 @@ import itertools
 
 
 def process_dataset():
-    print("Generating the final dataset")
+    print("Generating the final dataset......")
     reputation = rr.generate_reputation()
     #reputation = ut.load('../data_out/ReporterReputation.csv')
     #cl.modify_column_types(reputation, {'active': int})
@@ -71,56 +71,50 @@ def plot_statistics(y_real, y_pred, label):
 
 
 def main():
-    # bsimcl = process_dataset()
-    bsimcl = ut.load('../data_out/OscarBugSimilaritiesReporterReputationClassified.csv')
-    rep_row = bsimcl[bsimcl['classifier'] == 'DUPLICATED']
-    print("Number of duplicated rows")
-    print(rep_row.shape)
-    print("-------------")
-    dfdet = ut.load('../data_in/OscarBugDetails.csv')
-    dfdet_tr = dfdet[dfdet['status'].str.contains("Closed")]
-    # merged = dfdet_tr.merge(dfdet_tr, indicator=True, how='outer')
-    # dfdet_tst = merged[merged['_merge'] == 'left_only']
-    # print (dfdet_tst)
+    bsimcl = process_dataset()
+    #bsimcl = ut.load('../data_out/OscarBugSimilaritiesReporterReputationClassified.csv')
+
     print("Shape of complete dataset: ")
     print(bsimcl.shape)
     print("-------------")
 
+    dfdet = ut.load('../data_in/OscarBugDetails.csv')
+    dfdet_tr = dfdet[dfdet['status'].str.contains("Closed")]
     training_df = bsimcl[(bsimcl.bugid_1.isin(dfdet_tr.bugid)) & (bsimcl.bugid_2.isin(dfdet_tr.bugid))]
     test_df = bsimcl[~((bsimcl.bugid_1.isin(dfdet_tr.bugid)) & (bsimcl.bugid_2.isin(dfdet_tr.bugid)))]
     results = test_df.loc[:, ['bugid_1', 'bugid_2']]
-    print("Shape of training dataset without padding: ")
-    print(training_df.shape)
+    training_df_dup = training_df[training_df['classifier'] == 'DUPLICATED']
+    training_df_sample = training_df[training_df['classifier'] == 'OTHER'].sample(n=training_df_dup.shape[0]*100)
+    training_df_sample = training_df_sample.append([training_df_dup]*10)
+    print("Number of duplicated rows in training set")
+    print(training_df_dup.shape)
+    print("-------------")
+    print("Shape of training sample dataset without padding: ")
+    print(training_df_sample.shape)
     print("-------------")
     print("Shape of test dataset without padding: ")
     print(test_df.shape)
     print("-------------")
-    # training_df = training_df.append([rep_row] * (training_df.shape[0] / 1000))
-    # training_df = training_df.sample(frac=1).reset_index(drop=True)
-    # print("Shape of training dataset after padding: " )
-    # print(training_df.shape)
-    # print("-------------")
-    # test_df = test_df.append([rep_row] * (test_df.shape[0] / 1000))
-    # print("Shape of test dataset after padding: ")
-    # print(test_df.shape)
-    # print("-------------")
+
 
     scoring = ['accuracy', 'average_precision', 'precision', 'recall', 'f1']
-    X = [training_df[['categ_cosine_similarity', 'text_cosine_similarity']],
-         training_df[['categ_cosine_similarity', 'text_cosine_similarity', 'active', 'reports_number',
+    X = [training_df_sample[['categ_cosine_similarity', 'text_cosine_similarity']],
+         training_df_sample[['categ_cosine_similarity', 'text_cosine_similarity', 'active', 'reports_number',
                       'total_commits', 'seniority']]]
-    y_real = training_df['binary_classifier']
+    y_real = training_df_sample['binary_classifier']
 
     X_t = [test_df[['categ_cosine_similarity', 'text_cosine_similarity']],
            test_df[['categ_cosine_similarity', 'text_cosine_similarity', 'active', 'reports_number',
                     'total_commits', 'seniority']]]
     y_test_real = test_df['binary_classifier']
-    labels = ['Naive Bayes only bug information', 'Naive Bayes with reputation analysis',
+    labels = ['Decision Tree only bug information', 'Decision Tree with reputation analysis',
+              'Naive Bayes only bug information', 'Naive Bayes with reputation analysis',
               'Random Forest only bug information', 'Random Forest with reputation analysis',
               'Extreme Randomized Tree only bug information', 'Extreme Randomized Tree with reputation analysis',
               'Adaboost Class. only bug information', 'Adaboost Class. with reputation analysis',
               'Logistic Regression only bug information', 'Logistic Regression with reputation analysis']
-    CLF = [BernoulliNB(), RandomForestClassifier(class_weight='balanced', n_estimators=50, verbose=1),
+    CLF = [tree.DecisionTreeClassifier(class_weight='balanced'),BernoulliNB(),
+           RandomForestClassifier(class_weight='balanced', n_estimators=50, verbose=1),
            ExtraTreesClassifier(verbose=1),
            AdaBoostClassifier(n_estimators=100), LogisticRegression()]
     cv = ms.StratifiedShuffleSplit(n_splits=10, test_size=0.1)

@@ -13,15 +13,8 @@ nltk.download('stopwords')
 # it needs a dataset with all the vector values for each bug ('dataset') and
 # another dataset('combined') the possible combination of two bugs (bugid_1, bugid_2)
 
-def clean_string(str):
-    for i in ['.', '"', ',', '(', ')', '!', '?', ';', ':', '=', '*', '-', '\\', '/', '>']:
-        str = str.replace(i, '')
-    return str
-
-
 
 def generate_doc2vec(df):
-
     print("Generating and training doc2vec model")
 
     df['comments'] = df['comments'].apply(lambda x: x.decode("utf-8"))
@@ -30,8 +23,7 @@ def generate_doc2vec(df):
     df['tokenized'] = df['comments'].apply(lambda x: [w for w in gensim.utils.simple_preprocess(x, deacc=True)
                                                       if not w in nltk.corpus.stopwords.words('english')])
 
-    df['taggedDocs'] = df.apply(lambda row: gensim.models.doc2vec.TaggedDocument(row['tokenized'], [row['bugid']]),
-                                axis=1)
+    df['taggedDocs'] = df.apply(lambda row: gensim.models.doc2vec.TaggedDocument(row['tokenized'], [row['bugid']]), axis=1)
 
     model = gensim.models.doc2vec.Doc2Vec(size=400, min_count=2, iter=55)
     model.build_vocab(df['taggedDocs'])
@@ -45,7 +37,6 @@ def generate_doc2vec(df):
 
 # generate all the possible combinations using A priori algorithm sorting by date.
 def generate_pairs(dataset):
-
     print("Generating bug pair combinations")
 
     result = []
@@ -60,7 +51,6 @@ def generate_pairs(dataset):
 
 # generate context and text similarities.
 def generate_similarity(details, comments):
-
     result = pd.DataFrame(columns=['bugid_1', 'bugid_2', 'categ_cosine_similarity', 'text_cosine_similarity'])
     bugid_1 = pd.Series()
     bugid_2 = pd.Series()
@@ -68,15 +58,15 @@ def generate_similarity(details, comments):
     text_cosine_similarity = pd.Series()
 
     pairs = generate_pairs(details)
-    crop_details = preprocess_categorical(details)
+    det_indexed= details[['bugid','vector']].set_index('bugid')
 
     print("Generating contextual and text similarities")
 
     for row in pairs:
-        grt = crop_details.loc[row[1]]
+        grt = det_indexed.loc[row[1]].vector
         if grt.size == 0:
             continue
-        sim_categorical = cosine_similarity(crop_details.loc[[row[0]]], Y=grt)
+        sim_categorical = cosine_similarity(det_indexed.loc[[row[0]]].vector.tolist(), Y=grt.tolist())
         sim_textual = cosine_similarity(comments.loc[[row[0]]].vector.tolist(), Y=comments.loc[row[1]].vector.tolist())
         bugid_2 = bugid_2.append(pd.Series(row[1]))
         bugid_1 = bugid_1.append(pd.Series(list(it.repeat(row[0], len(row[1])))))
@@ -94,16 +84,21 @@ def generate_similarity(details, comments):
     return result
 
 
-def preprocess_categorical(dataset):
-
+def preprocess_categorical(df):
     print("Preprocessing categorical values from bug")
 
-    df = dataset.copy(deep=True)
-    df['project'] = df['project'].astype('category').cat.codes
-    df['status'] = df['status'].astype('category').cat.codes
-    df = cl.drop_columns(df, ['number','classifier', 'creation_date','reporter','sourceforge_reporter'])
-    df.set_index('bugid', inplace=True)
-
+    df['concatenated'] = df['type'].astype(str) + ' ' + df['priority'].astype(str) + ' ' + df['workflowId'].astype(
+        str) + ' ' + df['version'].astype(str)
+    df['concatenated'] = df['concatenated'].apply(lambda x: x.decode("utf-8"))
+    df['concatenated'] = df['concatenated'].apply(lambda x: x.rstrip())
+    df['tokenized'] = df['concatenated'].apply(lambda x: nltk.word_tokenize(x))
+    df['taggedDocs']= df[['tokenized','bugid']].apply(lambda r: gensim.models.doc2vec.TaggedDocument(
+        r['tokenized'],[r['bugid']]), axis='columns')
+    model = gensim.models.doc2vec.Doc2Vec(size=400, min_count=2, iter=55)
+    model.build_vocab(df['taggedDocs'])
+    model.train(df['taggedDocs'], total_examples=model.corpus_count, epochs=model.iter)
+    df['vector'] = df['tokenized'].apply(lambda x: model.infer_vector(x))
+    df = cl.drop_columns(df, ['concatenated', 'tokenized', 'taggedDocs'])
     return df
 
 
@@ -111,7 +106,9 @@ def generate():
     comments = ut.load('../data_in/OscarBugComments.csv')
     comments = generate_doc2vec(comments)
     # print (comments)
+
     details = ut.load('../data_in/OscarBugDetails.csv', date_cols=['creation_date'])
+    details = preprocess_categorical(details)
     combined = generate_similarity(details, comments)
 
     return combined
