@@ -1,10 +1,12 @@
 import itertools as it
+import numpy as np
 import pandas as pd
 from sklearn.metrics.pairwise import cosine_similarity
 import cleaning_utilities as cl
 import io_utilities as ut
 import gensim
 import nltk
+
 
 nltk.download('punkt')
 nltk.download('stopwords')
@@ -67,7 +69,18 @@ def generate_similarity(details, comments):
         if grt.size == 0:
             continue
         sim_categorical = cosine_similarity(det_indexed.loc[[row[0]]].vector.tolist(), Y=grt.tolist())
+        if (sim_categorical.dtype.char in np.typecodes['AllFloat'] and not np.isfinite(sim_categorical.sum())
+                and not np.isfinite(sim_categorical).all()):
+            print("ERROR")
+            print(row)
+            print(np.where(np.isinf(sim_categorical)))
+
         sim_textual = cosine_similarity(comments.loc[[row[0]]].vector.tolist(), Y=comments.loc[row[1]].vector.tolist())
+        if (sim_textual.dtype.char in np.typecodes['AllFloat'] and not np.isfinite(sim_textual.sum())
+                and not np.isfinite(sim_textual).all()):
+            print("ERROR")
+            print(row)
+            print(np.where(np.isinf(sim_categorical)))
         bugid_2 = bugid_2.append(pd.Series(row[1]))
         bugid_1 = bugid_1.append(pd.Series(list(it.repeat(row[0], len(row[1])))))
         categ_cosine_similarity = categ_cosine_similarity.append(pd.Series(sim_categorical[0, :]))
@@ -94,7 +107,7 @@ def preprocess_categorical(df):
     df['tokenized'] = df['concatenated'].apply(lambda x: nltk.word_tokenize(x))
     df['taggedDocs']= df[['tokenized','bugid']].apply(lambda r: gensim.models.doc2vec.TaggedDocument(
         r['tokenized'],[r['bugid']]), axis='columns')
-    model = gensim.models.doc2vec.Doc2Vec(size=400, min_count=2, iter=55)
+    model = gensim.models.doc2vec.Doc2Vec(size=400, min_count=1, iter=55)
     model.build_vocab(df['taggedDocs'])
     model.train(df['taggedDocs'], total_examples=model.corpus_count, epochs=model.iter)
     df['vector'] = df['tokenized'].apply(lambda x: model.infer_vector(x))
@@ -110,5 +123,7 @@ def generate():
     details = ut.load('../data_in/OscarBugDetails.csv', date_cols=['creation_date'])
     details = preprocess_categorical(details)
     combined = generate_similarity(details, comments)
+
+
 
     return combined

@@ -11,9 +11,12 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.ensemble import ExtraTreesClassifier
 from sklearn.ensemble import AdaBoostClassifier
+from sklearn.svm import SVC
 import sklearn.model_selection as ms
 import matplotlib.pyplot as plt
 import itertools
+from imblearn.over_sampling import SMOTE
+from numpy.random import RandomState
 
 
 def process_dataset():
@@ -23,7 +26,7 @@ def process_dataset():
     #cl.modify_column_types(reputation, {'active': int})
     ut.save_csv(reputation, '../data_out/ReporterReputation.csv', False)
     combined = sm.generate()
-    #combined = ut.load('../data_out/OscarBugSimilarities.csv')
+    # combined = ut.load('../data_out/OscarBugSimilarities.csv')
     ut.save_csv(combined, '../data_out/OscarBugSimilarities.csv', False)
     classified = ut.load('../data_in/OscarDuplicationClassification.csv')
     classified_rev = classified.copy(deep=True)
@@ -71,8 +74,8 @@ def plot_statistics(y_real, y_pred, label):
 
 
 def main():
-    bsimcl = process_dataset()
-    #bsimcl = ut.load('../data_out/OscarBugSimilaritiesReporterReputationClassified.csv')
+    # bsimcl = process_dataset()
+    bsimcl = ut.load('../data_out/OscarBugSimilaritiesReporterReputationClassified.csv')
 
     print("Shape of complete dataset: ")
     print(bsimcl.shape)
@@ -81,72 +84,110 @@ def main():
     dfdet = ut.load('../data_in/OscarBugDetails.csv')
     dfdet_tr = dfdet[dfdet['status'].str.contains("Closed")]
     training_df = bsimcl[(bsimcl.bugid_1.isin(dfdet_tr.bugid)) & (bsimcl.bugid_2.isin(dfdet_tr.bugid))]
-    test_df = bsimcl[~((bsimcl.bugid_1.isin(dfdet_tr.bugid)) & (bsimcl.bugid_2.isin(dfdet_tr.bugid)))]
-    results = test_df.loc[:, ['bugid_1', 'bugid_2']]
-    training_df_dup = training_df[training_df['classifier'] == 'DUPLICATED']
-    training_df_sample = training_df[training_df['classifier'] == 'OTHER'].sample(n=training_df_dup.shape[0]*100)
-    training_df_sample = training_df_sample.append([training_df_dup]*10)
-    print("Number of duplicated rows in training set")
-    print(training_df_dup.shape)
+    predict_df = bsimcl[~((bsimcl.bugid_1.isin(dfdet_tr.bugid)) & (bsimcl.bugid_2.isin(dfdet_tr.bugid)))]
+    results = predict_df.loc[:, ['bugid_1', 'bugid_2']]
+    df_dup = training_df[training_df['classifier'] == 'DUPLICATED']
+    training_df_dup = df_dup.sample(frac=0.5, random_state=RandomState(73))
+    training_df = training_df[training_df['classifier'] == 'OTHER'].sample(n=training_df_dup.shape[0] * 500, random_state=RandomState(7))
+    training_df = training_df.append([training_df_dup] * 150)
+    test_df_dup = df_dup.sample(frac=0.5, random_state=RandomState(42))
+    test_df = training_df[training_df['classifier'] == 'OTHER'].sample(n=test_df_dup.shape[0] * 100, random_state=RandomState(99))
+    test_df = test_df.append([test_df_dup] * 25)
+
+    print("Shape of training set")
+    print(training_df.shape)
     print("-------------")
-    print("Shape of training sample dataset without padding: ")
-    print(training_df_sample.shape)
-    print("-------------")
-    print("Shape of test dataset without padding: ")
+    print("Shape of testing set")
     print(test_df.shape)
     print("-------------")
 
-
+    sm = SMOTE()
     scoring = ['accuracy', 'average_precision', 'precision', 'recall', 'f1']
-    X = [training_df_sample[['categ_cosine_similarity', 'text_cosine_similarity']],
-         training_df_sample[['categ_cosine_similarity', 'text_cosine_similarity', 'active', 'reports_number',
-                      'total_commits', 'seniority']]]
-    y_real = training_df_sample['binary_classifier']
+    ytr_real = training_df['binary_classifier']
+    x_basic, y_basic = sm.fit_sample(training_df[['categ_cosine_similarity', 'text_cosine_similarity']], ytr_real)
+    x_report, y_report = sm.fit_sample(training_df[['categ_cosine_similarity', 'text_cosine_similarity', 'active',
+                                                    'reports_number','total_commits', 'seniority']], ytr_real)
+    X =[[x_basic, y_basic], [x_report, y_report]]
 
-    X_t = [test_df[['categ_cosine_similarity', 'text_cosine_similarity']],
-           test_df[['categ_cosine_similarity', 'text_cosine_similarity', 'active', 'reports_number',
-                    'total_commits', 'seniority']]]
-    y_test_real = test_df['binary_classifier']
+    ytst_real = test_df['binary_classifier']
+    xtst_basic, ytst_basic = sm.fit_sample(test_df[['categ_cosine_similarity', 'text_cosine_similarity']], ytst_real)
+    xtst_report, ytst_report = sm.fit_sample(test_df[['categ_cosine_similarity', 'text_cosine_similarity', 'active',
+                                                      'reports_number','total_commits', 'seniority']], ytst_real)
+    X_t = [[xtst_basic, ytst_basic],[xtst_report, ytst_report]]
+
+    print("Shape of training set after SMOTE")
+    print(len(X[0][0]))
+    print(len(X[1][0]))
+    print("-------------")
+    print("Shape of testing set after SMOTE")
+    print(len(X_t[0][0]))
+    print(len(X_t[1][0]))
+    print("-------------")
+
+    X_p = [predict_df[['categ_cosine_similarity', 'text_cosine_similarity']],
+           predict_df[['categ_cosine_similarity', 'text_cosine_similarity', 'active', 'reports_number',
+                       'total_commits', 'seniority']]]
+
     labels = ['Decision Tree only bug information', 'Decision Tree with reputation analysis',
               'Naive Bayes only bug information', 'Naive Bayes with reputation analysis',
               'Random Forest only bug information', 'Random Forest with reputation analysis',
               'Extreme Randomized Tree only bug information', 'Extreme Randomized Tree with reputation analysis',
               'Adaboost Class. only bug information', 'Adaboost Class. with reputation analysis',
-              'Logistic Regression only bug information', 'Logistic Regression with reputation analysis']
-    CLF = [tree.DecisionTreeClassifier(class_weight='balanced'),BernoulliNB(),
+              'Logistic Regression only bug information', 'Logistic Regression with reputation analysis',
+              'Support Vector Classification only bug information', 'Support Vector Classification with reputation analysis']
+
+    CLF = [tree.DecisionTreeClassifier(class_weight='balanced'), BernoulliNB(),
            RandomForestClassifier(class_weight='balanced', n_estimators=50, verbose=1),
            ExtraTreesClassifier(verbose=1),
-           AdaBoostClassifier(n_estimators=100), LogisticRegression()]
+           AdaBoostClassifier(n_estimators=100), LogisticRegression(), SVC()]
     cv = ms.StratifiedShuffleSplit(n_splits=10, test_size=0.1)
     i = 0
 
     for clf in CLF:
-        for x_tr, x_tst in itertools.izip(X, X_t):
+        for x_tr, x_tst, x_pred in itertools.izip(X, X_t, X_p):
+            print("-------------------------------------------------------------------------")
             print(labels[i])
-            scores = ms.cross_validate(clf, x_tr, y_real, scoring=scoring, cv=cv)
+            print("-------------------------------------------------------------------------")
+            print ("Number of different class training dataset")
+            print(np.bincount(x_tr[1]))
+            print("---------------")
+            print("Number of different class test dataset")
+            print(np.bincount(x_tst[1]))
+            print("---------------")
+            scores = ms.cross_validate(clf, x_tr[0],x_tr[1], scoring=scoring, cv=cv)
             print("Training scores")
             print(scores)
             print("---------------")
-            predicted = ms.cross_val_predict(clf, x_tr, y_real, cv=5)
-            results['predicted_' + labels[i].replace(" ", "_")] = pd.Series(
-                ms.cross_val_predict(clf, x_tst, y_test_real, cv=5))
-            score = metrics.roc_auc_score(y_real, predicted, average='micro')
-            print("Test roc auc score")
+            test = ms.cross_val_predict(clf, x_tst[0], x_tst[1], cv=10)
+
+            #results['predicted_' + labels[i].replace(" ", "_")] = pd.Series(ms.cross_val_predict(estimator=clf, X=x_pred, y=None, cv=5))
+
+            #Report
+            score = metrics.roc_auc_score(x_tst[1], test, average='micro')
+            print("Test roc auc score micro")
             print(score)
             print("------------")
-            score = metrics.accuracy_score(y_real, predicted)
+            score = metrics.roc_auc_score(x_tst[1], test, average='macro')
+            print("Test roc auc score macro")
+            print(score)
+            print("------------")
+            score = metrics.accuracy_score(x_tst[1], test)
             print("Test accuracy score")
             print(score)
             print("------------")
-            score = metrics.cohen_kappa_score(y_real, predicted)
+            score = metrics.cohen_kappa_score(x_tst[1], test)
             print("Test cohen_kappa_score score")
             print(score)
             print("------------")
-            score = metrics.precision_recall_fscore_support(y_real, predicted, average='micro')
-            print("Test precision_recall_fscore score")
+            score = metrics.precision_recall_fscore_support(x_tst[1], test, average='micro')
+            print("Test precision_recall_fscore score micro")
             print(score)
             print("------------")
-            plot_statistics(y_real, predicted, labels[i])
+            score = metrics.precision_recall_fscore_support(x_tst[1], test, average='macro')
+            print("Test precision_recall_fscore score macro")
+            print(score)
+            print("------------")
+            plot_statistics(x_tst[1], test, labels[i])
             i += 1
 
 
