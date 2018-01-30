@@ -74,8 +74,8 @@ def plot_statistics(y_real, y_pred, label):
 
 
 def main():
-    # bsimcl = process_dataset()
-    bsimcl = ut.load('../data_out/OscarBugSimilaritiesReporterReputationClassified.csv')
+    bsimcl = process_dataset()
+    #bsimcl = ut.load('../data_out/OscarBugSimilaritiesReporterReputationClassified.csv')
 
     print("Shape of complete dataset: ")
     print(bsimcl.shape)
